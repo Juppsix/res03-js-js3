@@ -161,11 +161,37 @@ let users = [
     }
 ];
 function countActiveUsers(users) {
+    
+    let activeUsers = 0;
 for(let i = 0; i < users.length; i++)
 {
-    
-     console.log(users[i].isActive);
+    if (users[i].isActive === true)
+     {
+         activeUsers=activeUsers+1;
+     }
 }
+return activeUsers;
 }
- 
 console.log(`We currently have ${ countActiveUsers(users) } active users.`);
+
+function getActiveUsers(users) {
+let activeUsers= ["Franklin Dyer", "Judith Graves", "Hoffman Hess", "Sheena Goff", "Nannie Berry", "Lynette Jackson", "Sallie Albert", "Pruitt Sellers"]
+for(activeUser of activeUsers)
+{
+    console.log(activeUsers);
+}
+    
+}
+
+function hasBlueEyes(activeUsers) {
+let BlueEyesUsers = 0;
+for(let i = 0; i < users.length; i++)
+{
+    if (users[i].eyeColor === "blue")
+    {
+        BlueEyesUsers=BlueEyesUsers+1;
+    }
+}
+return BlueEyesUsers;
+}
+console.log(`Out of our currently ${  } active users, ${} have blue eyes.`);
