@@ -160,38 +160,81 @@ let users = [
         company: "CENTURIA"
     }
 ];
-function countActiveUsers(users) {
+// function countActiveUsers(users) {
     
-    let activeUsers = 0;
-for(let i = 0; i < users.length; i++)
-{
-    if (users[i].isActive === true)
-     {
-         activeUsers=activeUsers+1;
-     }
-}
-return activeUsers;
-}
-console.log(`We currently have ${ countActiveUsers(users) } active users.`);
+//     let activeUsers = 0;
+// for(let i = 0; i < users.length; i++)
+// {
+//     if (users[i].isActive === true)
+//      {
+//          activeUsers=activeUsers+1;
+//      }
+// }
+// return activeUsers;
+// }
+// console.log(`We currently have ${ countActiveUsers(users) } active users.`);
+
+// function getActiveUsers(input) {
+// let total = 0;
+// for(let i =0; i < input.length; i++)
+// {
+//      if (input[i].isActive === true)
+//     {
+//          total ++
+//      }
+//     // verifier si l'utilisateur est actif
+//     console.log(input[i]);
+//     // si  oui l' ajouter au nouveau tableau
+// }
+//   return total; // renvoyer le nouveau tableau
+// }
+
+// console.log(getActiveUsers(users))
+
+// function hasBlueEyes(activeUsers) {
+// let BlueEyesUsers = 0;
+// for(let i = 0; i < users.length; i++)
+// {
+//     if (users[i].eyeColor === "blue" && users[i].isActive === true)
+//     {
+//         BlueEyesUsers=BlueEyesUsers+1;
+//     }
+// }
+// return BlueEyesUsers;
+// }
+//  console.log(`Out of our currently ${getActiveUsers(users)} active users, ${hasBlueEyes(users)} have blue eyes.`);
 
 function getActiveUsers(users) {
-let activeUsers= ["Franklin Dyer", "Judith Graves", "Hoffman Hess", "Sheena Goff", "Nannie Berry", "Lynette Jackson", "Sallie Albert", "Pruitt Sellers"]
-for(activeUser of activeUsers)
+let tab = [];
+for (let i =0; i < users.length; i++)
 {
-    console.log(activeUsers);
-}
-    
-}
-
-function hasBlueEyes(activeUsers) {
-let BlueEyesUsers = 0;
-for(let i = 0; i < users.length; i++)
-{
-    if (users[i].eyeColor === "blue")
-    {
-        BlueEyesUsers=BlueEyesUsers+1;
+    if (users[i].isActive === true){
+        
+        tab.push(users[i])
+        
     }
 }
-return BlueEyesUsers;
+return tab;
+
 }
-console.log(`Out of our currently ${  } active users, ${} have blue eyes.`);
+console.log(getActiveUsers(users))
+function getActiveUsersAges(users) {
+let tab = [];
+for (let i =0; i < users.length; i++){
+    console.log(users[i].age)
+    tab.push(users[i].age)
+    
+}
+return tab;
+}
+console.log(getActiveUsersAges(getActiveUsers(users)))
+function computeActiveUsersAverageAge(ages) {
+let total = 0;
+for (let i =0; i < ages.length; i++){
+    total = total + ages[i]
+}
+return total / ages.length;
+
+}
+console.log(computeActiveUsersAverageAge(getActiveUsersAges(getActiveUsers(users))))
+console.log(`Out of our currently ${getActiveUsers(users).length} active users, the average age is ${computeActiveUsersAverageAge(getActiveUsersAges(getActiveUsers(users)))}.`);
