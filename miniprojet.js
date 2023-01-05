@@ -1,5 +1,4 @@
-let users = [
-    {
+let users = [{
         id: 0,
         isActive: false,
         age: 24,
@@ -161,7 +160,7 @@ let users = [
     }
 ];
 // function countActiveUsers(users) {
-    
+
 //     let activeUsers = 0;
 // for(let i = 0; i < users.length; i++)
 // {
@@ -204,37 +203,76 @@ let users = [
 // }
 //  console.log(`Out of our currently ${getActiveUsers(users)} active users, ${hasBlueEyes(users)} have blue eyes.`);
 
-function getActiveUsers(users) {
-let tab = [];
-for (let i =0; i < users.length; i++)
-{
-    if (users[i].isActive === true){
-        
-        tab.push(users[i])
-        
+// function getMultronUsers(users) {
+//     let multronUsers = [];
+//     for (let i = 0; i < users.length; i++) {
+//         if (users[i].company === "MULTRON") {
+//             multronUsers.push(users[i])
+//         }
+//     }
+//     return multronUsers;
+// }
+// console.log(getMultronUsers(users))
+
+// function setMultronToCenturia(users) {
+
+// }
+
+// console.log(`${getMultronUsers(users).length} user companies have been changed from MULTRON to CENTURIA.`);
+
+// function getBrownEyedUsers(users) {
+// let brownEyesUsers = 0;
+// for(let i = 0; i < users.length; i++){
+//     if (users[i].eyeColor === "brown" && users[i].company !== "CENTURIA")
+//     {
+//         brownEyesUsers=brownEyesUsers+1;
+//     }
+// }
+// return brownEyesUsers;
+// }
+// console.log(getBrownEyedUsers(users))
+
+// function excludeCenturiaWorkers(users) {
+
+// }
+
+// console.log(`${getBrownEyedUsers(users)} users with brown eyes do not work at CENTURIA`);
+
+function GetEyesColors(color, users){
+    let colorEyes= [];
+    for (let i = 0; i <users.length; i++){
+        if (users[i].eyeColor === color)
+        {
+            colorEyes.push(users[i]);
+            
+            
+        }
     }
+    return colorEyes;
 }
-return tab;
+console.log(GetEyesColors("blue",users))
+console.log(GetEyesColors("brown",users))
+console.log(GetEyesColors("green",users))
 
+function actif(users){
+    let count = 0;
+    for (let i = 0; i < users.length; i++){
+        if (users[i].isActive === true){
+            count ++;
+        }
+    }
+    return count;
 }
-console.log(getActiveUsers(users))
-function getActiveUsersAges(users) {
-let tab = [];
-for (let i =0; i < users.length; i++){
-    console.log(users[i].age)
-    tab.push(users[i].age)
-    
-}
-return tab;
-}
-console.log(getActiveUsersAges(getActiveUsers(users)))
-function computeActiveUsersAverageAge(ages) {
-let total = 0;
-for (let i =0; i < ages.length; i++){
-    total = total + ages[i]
-}
-return total / ages.length;
+console.log(actif(GetEyesColors("blue",users)))
+console.log(actif(GetEyesColors("brown",users)))
+console.log(actif(GetEyesColors("green",users)))
 
-}
-console.log(computeActiveUsersAverageAge(getActiveUsersAges(getActiveUsers(users))))
-console.log(`Out of our currently ${getActiveUsers(users).length} active users, the average age is ${computeActiveUsersAverageAge(getActiveUsersAges(getActiveUsers(users)))}.`);
+
+
+
+
+// console.log(`Out of our brown eyed users ${} are active and ${} are inactive`);
+
+// console.log(`Out of our green eyed users ${} are active and ${} are inactive`);
+
+// console.log(`Out of our blue eyed users ${} are active and ${} are inactive`);
